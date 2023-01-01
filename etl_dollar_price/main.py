@@ -4,6 +4,11 @@ import requests
 from apikey2 import API_KEY2
 import pandas as pd
 import json
+import os
+from twilio.rest import Client
+from twilio_config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,PHONE_NUMBER,API_KEY_WAPI
+import time
+
 
 '''
     Script that allows extract data of dollar from API apilayer
@@ -38,3 +43,25 @@ file = open("./dollar.txt", "w")
 file.write(str(dollar))
 
 print("Datos guardados con éxito!")
+
+#--------------------------------------------------- TWILIO ---------------
+
+# template para luego enviar al celular
+template = '\nHola Carlos! \n\n El valor del Dollar para hoy es: \n\n '+ str(dollar)
+print(template)
+
+
+time.sleep(2)
+account_sid = TWILIO_ACCOUNT_SID
+auth_token = TWILIO_AUTH_TOKEN
+
+client = Client(account_sid, auth_token)
+
+message = client.messages \
+                .create(
+                    body = template,
+                    from_ = PHONE_NUMBER,
+                    to = '+34 610 86 58 16'#your number
+                )
+
+print('El mensaje fue enviado con éxito!' + message.sid)

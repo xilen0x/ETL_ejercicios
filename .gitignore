@@ -1,5 +1,10 @@
 /etl_dollar_cripto/data.csv
 /EjerciciosCursoUdemy_ETL_Prefect/__pycache__
 /etl_dollar_cripto/apikey.py
+/etl_dollar_price/apikey2.py
+/etl_dollar_price/dollar*
 /etl_dollar_cripto/__pycache__
-
+data.csv
+etl_dollar_cripto/twilio_config.py
+etl_dollar_price/twilio_config.py
+etl_dollar_cripto/twilio_phone_number.py
