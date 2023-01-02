@@ -1,10 +1,10 @@
-# Extract
+# ---------------------------------------- Extract
 
 import requests
 from apikey2 import API_KEY2
 import pandas as pd
 import json
-import os
+#import os
 from twilio.rest import Client
 from twilio_config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,PHONE_NUMBER,API_KEY_WAPI
 import time
@@ -27,7 +27,7 @@ response = requests.request("GET", url, headers=headers, data = payload)
 status_code = response.status_code
 result = response.text
 
-# Transform
+# ---------------------------------------- Transform
 
 # string to a dictionary with json.loads() function
 data = json.loads(result)
@@ -51,6 +51,7 @@ template = '\nHola Carlos! \n\n El valor del Dollar para hoy es: \n\n '+ str(dol
 print(template)
 
 
+# ---------------------------------------- Load
 time.sleep(2)
 account_sid = TWILIO_ACCOUNT_SID
 auth_token = TWILIO_AUTH_TOKEN
