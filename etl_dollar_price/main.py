@@ -61,7 +61,7 @@ message = client.messages \
                 .create(
                     body = template,
                     from_ = PHONE_NUMBER,
-                    to = '+34 610 86 58 16'#your number
+                    to = '+1 111 11 11 11'#your number
                 )
 
 print('El mensaje fue enviado con éxito!' + message.sid)
